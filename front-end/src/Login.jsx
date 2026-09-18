@@ -7,7 +7,8 @@ function Login() {
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
+  const BASE_URL =
+    import.meta.env.VITE_API_BASE_URL || "https://team-budget-app.onrender.com";
 
   const handleLogin = async (e) => {
     e.preventDefault();

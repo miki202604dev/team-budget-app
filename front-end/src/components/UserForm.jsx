@@ -43,7 +43,7 @@ function UserForm() {
       const BASE_URL =
         (typeof process !== "undefined" &&
           process.env?.REACT_APP_API_BASE_URL) ||
-        "http://localhost:8080";
+        "https://team-budget-app.onrender.com";
       const endpoint = isEdit ? `/api/users/${userId}` : "/api/users";
       const method = isEdit ? "PUT" : "POST";
 
