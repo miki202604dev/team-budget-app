@@ -1,23 +1,61 @@
+import React from "react";
+
 import {
-  BrowserRouter,
+  BrowserRouter as Router,
   Routes,
   Route
 }
 
 from "react-router-dom";
-import Login from "./Login";
-import Home from "./Home";
+
+import Home from "./components/Home";
+import Login from "./components/Login";
+import UsersList from "./components/UsersList";
+import UserDetail from "./components/UserDetail";
+import UserForm from "./components/UserForm"; // ★追加
 
 function App() {
-  return (<BrowserRouter> <Routes> <Route path="/" element= {
-      <Login />
-    }
-
-    /> <Route path="/home" element= {
+  return (<Router> <Routes> <Route path="/" element= {
       <Home />
     }
 
-    /> </Routes> </BrowserRouter>);
+    /> {
+      /* ログイン */
+    }
+
+    <Route path="/login" element= {
+      <Login />
+    }
+
+    /> {
+      /* ユーザー一覧 */
+    }
+
+    <Route path="/users" element= {
+      <UsersList />
+    }
+
+    /> {
+      /* ユーザー詳細 */
+    }
+
+    <Route path="/users/:user_id" element= {
+      <UserDetail />
+    }
+
+    /> {
+      /* ユーザー編集 */
+    }
+
+    <Route path="/users/edit/:user_id" element= {
+      <UserForm />
+    }
+
+    /> {
+      /* ★追加 */
+    }
+
+    </Routes> </Router>);
 }
 
 export default App;

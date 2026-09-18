@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/api/users")
 public class UsersController {
 
     private final UsersService usersService;
@@ -21,9 +21,9 @@ public class UsersController {
         return usersService.findAll();
     }
 
-    @GetMapping("/{id}")
-    public Users findById(@PathVariable Long id) {
-        return usersService.findById(id);
+    @GetMapping("/{userId}")
+    public Users findById(@PathVariable Long userId) {
+        return usersService.findById(userId);
     }
 
     @PostMapping
@@ -31,14 +31,14 @@ public class UsersController {
         return usersService.save(users);
     }
 
-    @PutMapping("/{id}")
-    public Users update(@PathVariable Long id, @RequestBody Users users) {
-        users.setUser_id(id);   // ← ★ user_id に統一
+    @PutMapping("/{userId}")
+    public Users update(@PathVariable Long userId, @RequestBody Users users) {
+        users.setUserId(userId);
         return usersService.save(users);
     }
 
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id) {
-        usersService.delete(id);
+    @DeleteMapping("/{userId}")
+    public void delete(@PathVariable Long userId) {
+        usersService.delete(userId);
     }
 }

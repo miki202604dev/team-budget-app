@@ -23,7 +23,6 @@
     </properties>
 
     <dependencies>
-
         <!-- Web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -36,17 +35,24 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
-        <!-- H2 Database -->
+        <!-- Spring Security (パスワード暗号化用) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+        <!-- PostgreSQL Driver (Neon用) -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- H2 Database (ローカルバックアップ用) -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-        </dependency>
-
-        <!-- ★★ H2 Console（前回は自動で入っていた依存）★★ -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-h2console</artifactId>
-            <version>4.1.1</version>
+            <scope>runtime</scope>
         </dependency>
 
         <!-- DevTools -->
@@ -70,7 +76,6 @@
             <artifactId>spring-boot-starter-webmvc-test</artifactId>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -79,7 +84,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -99,7 +103,6 @@
                             </annotationProcessorPaths>
                         </configuration>
                     </execution>
-
                     <execution>
                         <id>default-testCompile</id>
                         <phase>test-compile</phase>
@@ -115,10 +118,8 @@
                             </annotationProcessorPaths>
                         </configuration>
                     </execution>
-
                 </executions>
             </plugin>
         </plugins>
     </build>
-
 </project>
